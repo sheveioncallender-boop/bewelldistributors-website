@@ -1,0 +1,43 @@
+name: Odoo 19 module checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  shared-odoo-19-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container:
+      image: odoo:19.0
+      options: --user root
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+          POSTGRES_DB: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install and test website, demo variants and native cart
+        run: >-
+          odoo --db_host=postgres --db_user=odoo --db_password=odoo
+          --addons-path=/usr/lib/python3/dist-packages/odoo/addons,$GITHUB_WORKSPACE
+          --data-dir=/tmp/bewell-odoo -d bewell_test
+          -i bewell_website,bewell_demo_catalog --without-demo=all
+          --test-enable --test-tags=/bewell_website,/bewell_demo_catalog
+          --stop-after-init --http-port=8069
+      - name: Check module upgrade
+        run: >-
+          odoo --db_host=postgres --db_user=odoo --db_password=odoo
+          --addons-path=/usr/lib/python3/dist-packages/odoo/addons,$GITHUB_WORKSPACE
+          --data-dir=/tmp/bewell-odoo -d bewell_test
+          -u bewell_website,bewell_demo_catalog --without-demo=all --stop-after-init

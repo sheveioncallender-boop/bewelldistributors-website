@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="branded_layout" inherit_id="website.layout" name="Be Well website styling" priority="80">
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="{{ 'bw-site' if website.bewell_enabled else '' }}" separator=" "/>
+        </xpath>
+        <xpath expr="//header" position="before">
+            <div t-if="website.bewell_enabled" class="bw-announcement">
+                <div class="bw-container"><span>Tiles, granite &amp; stone. Possibilities for every space.</span><a href="tel:+18682992160">+1 (868) 299-2160</a></div>
+            </div>
+        </xpath>
+        <!-- Native Odoo navigation, mobile header, account, cart and checkout are untouched. -->
+        <xpath expr="//footer" position="before">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.footer"/>
+        </xpath>
+        <xpath expr="//footer" position="attributes">
+            <attribute name="t-attf-class" add="{{ 'bw-native-footer' if website.bewell_enabled else '' }}" separator=" "/>
+        </xpath>
+    </template>
+    <template id="footer" name="Be Well Footer">
+        <footer class="bw-footer"><div class="bw-container">
+            <div class="bw-footer-grid">
+                <div><a href="/" class="bw-wordmark"><img src="/bewell_website/static/src/img/logo.png" alt="" width="45" height="45"/><span>be well<span class="bw-wordmark-sub">DISTRIBUTORS LIMITED</span></span></a><p>Distinctive surfaces. Thoughtful partnerships.<br/>Spaces full of possibility.</p><span class="bw-small">Trinidad &amp; Tobago · Caribbean connections</span></div>
+                <div><h3>Explore</h3><a href="/shop">Shop all products</a><a href="/be-well/collections">Our collections</a><a href="/be-well/about">Our story</a></div>
+                <div><h3>Work with us</h3><a href="/be-well/distribution#retailers">Become a retail partner</a><a href="/be-well/distribution#suppliers">Supplier partnerships</a><a href="/my">My account</a></div>
+                <div><h3>Let's connect</h3><a href="tel:+18682992160">+1 (868) 299-2160</a><a href="mailto:info@bewelldistributorsltd.com">info@bewelldistributorsltd.com</a><p>Chaguanas, Trinidad</p><a href="/contactus">Send an enquiry ↗</a></div>
+            </div>
+            <div class="bw-footer-bottom"><span>© Be Well Distributors Limited</span><span>Local understanding. Global connections.</span></div>
+        </div></footer>
+    </template>
+</odoo>

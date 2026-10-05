@@ -28,7 +28,7 @@ Initial setup sets only the chosen website's name, logo, homepage and navigation
 
 ## Native Odoo behaviour
 
-- Odoo owns the desktop header, mobile menu, search, account menu and cart badge.
+- Odoo owns the desktop header, mobile menu, search, account menu and cart badge. The default desktop header groups search, account and cart before Contact Us, with the phone in the announcement strip. Mobile and alternative headers use the real Be Well phone/email. Native buttons and variant selections use the teal palette.
 - `/shop`, product pages, category filters, variants, cart, checkout and `/my` are standard Odoo.
 - Homepage product cards read published, saleable products for the current website and company. They use Odoo's current pricelist, tax and fiscal-position calculation.
 - Cards link to the native product page for size/finish/thickness selection and Add to Cart.
@@ -79,3 +79,7 @@ Local validation covers Python syntax, XML structure, assets, manifest reference
 ## Credits
 
 Original leaf logo and Sharleen Pariag's portrait were retrieved from the live Be Well website on 5 October 2026 for this authorised rebuild. Original teal: `#069083`. Architectural and material imagery is AI-generated for this showcase. See `docs/ASSETS.md` for sources and prompts.
+
+## Update 19.0.1.0.1
+
+Corrected the native placeholder phone/email, arranged the default header controls and applied the teal palette to native buttons, selected variants and badges. Rebuild from main in Cloudpepper, then upgrade **Be Well Distributors Website** in Odoo Apps. This update does not reinstall or reload demo products.

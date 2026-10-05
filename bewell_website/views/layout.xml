@@ -9,7 +9,7 @@
                 <div class="bw-container"><span>Tiles, granite &amp; stone. Possibilities for every space.</span><a href="tel:+18682992160">+1 (868) 299-2160</a></div>
             </div>
         </xpath>
-        <!-- Native Odoo navigation, mobile header, account, cart and checkout are untouched. -->
+        <!-- Odoo owns the navigation, account, cart and checkout; header.xml arranges its native components. -->
         <xpath expr="//footer" position="before">
             <t t-if="website.bewell_enabled" t-call="bewell_website.footer"/>
         </xpath>

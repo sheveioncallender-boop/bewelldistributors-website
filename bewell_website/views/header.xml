@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="phone_link" name="Be Well Phone">
+        <a href="tel:+18682992160" class="nav-link bw-header-phone" aria-label="Call Be Well on +1 868 299 2160">
+            <i class="fa fa-phone me-2" aria-hidden="true"/><span class="o_force_ltr">+1 (868) 299-2160</span>
+        </a>
+    </template>
+    <template id="email_link" name="Be Well Email">
+        <a href="mailto:info@bewelldistributorsltd.com" class="nav-link bw-header-email"><i class="fa fa-envelope me-2" aria-hidden="true"/>info@bewelldistributorsltd.com</a>
+    </template>
+    <!-- Replace the native placeholder contact values for this website only,
+         including the mobile menu and alternative Odoo header presets. -->
+    <template id="native_contact_details" inherit_id="website.header_text_element" name="Be Well Native Contact Details" priority="90">
+        <xpath expr="(//a[starts-with(@href, 'tel:')])[3]" position="replace">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.phone_link"/><t t-else="">$0</t>
+        </xpath>
+        <xpath expr="(//a[starts-with(@href, 'tel:')])[2]" position="replace">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.phone_link"/><t t-else="">$0</t>
+        </xpath>
+        <xpath expr="(//a[starts-with(@href, 'tel:')])[1]" position="replace">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.phone_link"/><t t-else="">$0</t>
+        </xpath>
+        <xpath expr="(//a[starts-with(@href, 'mailto:')])[2]" position="replace">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.email_link"/><t t-else="">$0</t>
+        </xpath>
+        <xpath expr="(//a[starts-with(@href, 'mailto:')])[1]" position="replace">
+            <t t-if="website.bewell_enabled" t-call="bewell_website.email_link"/><t t-else="">$0</t>
+        </xpath>
+    </template>
+    <template id="native_header_arrangement" inherit_id="website_sale.template_header_default" name="Be Well Native Header Arrangement" priority="90">
+        <xpath expr="//div[@id='o_main_nav']" position="attributes">
+            <attribute name="t-attf-class" add="{{ 'bw-native-nav' if website.bewell_enabled else '' }}" separator=" "/>
+        </xpath>
+        <!-- Phone is prominent in the announcement strip; keep the main row compact. -->
+        <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="attributes">
+            <attribute name="t-if">not website.bewell_enabled</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='portal.user_dropdown']" position="attributes">
+            <attribute name="_user_name">not website.bewell_enabled</attribute>
+            <attribute name="_icon">website.bewell_enabled</attribute>
+            <attribute name="_no_caret">website.bewell_enabled</attribute>
+            <attribute name="_link_class.f"/>
+            <attribute name="_link_class">'o_navlink_background btn rounded-circle bw-account-control' if website.bewell_enabled else ((_additional_btn_color or 'nav-link') + ' border-0')</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='website_sale.header_cart_link']" position="attributes">
+            <attribute name="t-if">not website.bewell_enabled</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
+            <t t-if="website.bewell_enabled" t-call="website_sale.header_cart_link">
+                <t t-set="_icon" t-value="True"/>
+                <t t-set="_link_class" t-value="'o_navlink_background btn position-relative rounded-circle p-1 text-center text-reset bw-cart-control'"/>
+                <t t-set="_badge_class" t-value="'position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill'"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="native_account_label" inherit_id="portal.user_dropdown" name="Be Well Account Accessibility" priority="90">
+        <xpath expr="//a[@data-bs-toggle='dropdown']" position="attributes">
+            <attribute name="t-att-aria-label">'My account' if website and website.bewell_enabled else None</attribute>
+            <attribute name="t-att-title">'My account' if website and website.bewell_enabled else None</attribute>
+        </xpath>
+    </template>
+</odoo>

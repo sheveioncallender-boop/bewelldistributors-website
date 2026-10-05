@@ -4,3 +4,44 @@
 @media(max-width:991px){.bw-site .bw-hero-grid{gap:30px}.bw-site .bw-hero-visual>img{height:470px}.bw-site .bw-hero-copy .bw-eyebrow{font-size:9px}.bw-site .bw-hero-note{line-height:1.7}.bw-site .bw-values .bw-container{display:grid;grid-template-columns:1fr 1fr;gap:22px}.bw-site .bw-collection-card>img{height:210px}.bw-site .bw-collection-card strong{font-size:19px}.bw-site .bw-collection-card>b{display:none}.bw-site .bw-collection-card>span{padding-inline:18px}.bw-site .bw-story-grid{gap:40px}.bw-site .bw-story-art img{height:380px}.bw-site .bw-business-inner{gap:30px}.bw-site .bw-footer-grid{grid-template-columns:1fr 1fr}.bw-site .bw-partner-panel{padding:30px}.bw-site .bw-three-grid{gap:15px}.bw-site .bw-info-card{padding:25px 12px}}
 @media(max-width:680px){.bw-site .bw-container{width:90%}.bw-site .bw-announcement{font-size:9px;padding:10px 0}.bw-site .bw-announcement .bw-container{justify-content:center}.bw-site .bw-announcement a{display:none}.bw-site .bw-hero{padding:15px 0 35px}.bw-site .bw-hero-grid{grid-template-columns:1fr;gap:12px}.bw-site .bw-hero-copy{padding:22px 0 5px}.bw-site .bw-page h1{font-size:54px}.bw-site .bw-page .bw-lead{font-size:15px}.bw-site .bw-actions{gap:22px;margin:23px 0}.bw-site .bw-hero-note{display:none}.bw-site .bw-hero-visual>img{height:380px;border-radius:40% 40% 4px 4px}.bw-site .bw-photo-tag{left:12px;bottom:15px;padding:15px 20px}.bw-site .bw-photo-tag strong{font-size:16px}.bw-site .bw-vertical{display:none}.bw-site .bw-values{padding:22px 0}.bw-site .bw-values span{font-size:10px;gap:8px}.bw-site .bw-values i{font-size:16px}.bw-site .bw-section{padding:55px 0}.bw-site .bw-section-heading{align-items:start;flex-direction:column;gap:18px}.bw-site .bw-section-heading .bw-text-link{font-size:12px}.bw-site .bw-collection-grid{grid-template-columns:1fr;gap:18px}.bw-site .bw-collection-card{display:grid;grid-template-columns:130px 1fr;align-items:center;padding:0}.bw-site .bw-collection-card>img{height:155px}.bw-site .bw-collection-card>span{padding:20px}.bw-site .bw-collection-card strong{font-size:21px}.bw-site .bw-collection-card small{font-size:11px}.bw-site .bw-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}.bw-site .bw-product-copy{padding:15px 12px}.bw-site .bw-product-copy h3{font-size:16px;margin-bottom:16px}.bw-site .bw-product-copy .bw-eyebrow{font-size:8px;letter-spacing:.1em}.bw-site .bw-price-row{font-size:13px;gap:5px;flex-wrap:wrap}.bw-site .bw-price-row a{font-size:10px}.bw-site .bw-story-grid{grid-template-columns:1fr;gap:35px}.bw-site .bw-story-art{max-width:420px;margin-inline:auto;width:100%}.bw-site .bw-story-art img{height:420px}.bw-site .bw-business-inner{flex-direction:column;align-items:stretch}.bw-site .bw-business{padding:50px 0}.bw-site .bw-business-actions{min-width:0}.bw-site .bw-page-intro{padding:55px 0 35px}.bw-site .bw-page-intro h1{font-size:43px}.bw-site .bw-two-grid,.bw-site .bw-three-grid,.bw-site .bw-range-grid{grid-template-columns:1fr}.bw-site .bw-range-card>img{height:320px}.bw-site .bw-partner-panel{padding:28px}.bw-site .bw-footer{padding-top:45px}.bw-site .bw-footer-grid{gap:32px 20px}.bw-site .bw-footer-grid>div:first-child,.bw-site .bw-footer-grid>div:last-child{grid-column:1/-1}.bw-site .bw-footer-bottom{flex-direction:column;gap:10px}.bw-site .bw-button{font-size:12px;padding:14px 20px}.bw-site .bw-contact-row a{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.bw-site *{transition:none!important;scroll-behavior:auto!important}}
+
+/* Native Odoo 19 components use compiled colors as well as Bootstrap variables.
+   Set actual properties so existing Enterprise palettes cannot leave purple CTAs.
+   Scope everything to the branded website, preserving semantic status colors. */
+.bw-site .btn-primary,.bw-site a.btn-primary,.bw-site .btn-fill-primary{
+  background-color:#069083!important;border-color:#069083!important;color:#fff!important;
+  --bs-btn-color:#fff;--bs-btn-bg:#069083;--bs-btn-border-color:#069083;
+  --bs-btn-hover-color:#fff;--bs-btn-hover-bg:#08756b;--bs-btn-hover-border-color:#08756b;
+  --bs-btn-active-color:#fff;--bs-btn-active-bg:#07665e;--bs-btn-active-border-color:#07665e;
+  --bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#069083;--bs-btn-disabled-border-color:#069083;
+}
+.bw-site .btn-primary:hover,.bw-site .btn-primary:focus-visible,.bw-site .btn-fill-primary:hover{background-color:#08756b!important;border-color:#08756b!important;color:#fff!important}
+.bw-site .btn-primary:active,.bw-site .btn-primary.active{background-color:#07665e!important;border-color:#07665e!important;color:#fff!important}
+.bw-site .btn-outline-primary{color:#08756b!important;border-color:#069083!important;background-color:transparent!important}
+.bw-site .btn-outline-primary:hover,.bw-site .btn-outline-primary.active,.bw-site .btn-check:checked+.btn-outline-primary{color:#fff!important;background-color:#069083!important;border-color:#069083!important}
+.bw-site .btn-primary:focus-visible,.bw-site .btn-outline-primary:focus-visible{box-shadow:0 0 0 .2rem #06908340!important}
+.bw-site .form-check-input:checked{background-color:#069083!important;border-color:#069083!important}
+.bw-site .form-check-input:focus,.bw-site .form-control:focus,.bw-site .form-select:focus{border-color:#069083;box-shadow:0 0 0 .2rem #06908326}
+.bw-site .text-primary,.bw-site .text-primary-emphasis{color:#08756b!important}
+.bw-site .bg-primary,.bw-site .text-bg-primary,.bw-site .badge.bg-primary{background-color:#069083!important;color:#fff!important}
+.bw-site .border-primary{border-color:#069083!important}
+.bw-site .badge.text-bg-light,.bw-site .badge.text-bg-primary-subtle,.bw-site .badge.bg-primary-subtle{background:#e5f3ef!important;color:#086c62!important;border-color:#87c7bd!important}
+.bw-site .js_attribute_value .badge{background:#e5f3ef!important;color:#086c62!important;border-color:#87c7bd!important}
+.bw-site .page-item.active .page-link{background-color:#069083;border-color:#069083;color:#fff}
+.bw-site header .bw-native-nav{width:92%;max-width:1320px;margin-inline:auto;min-height:80px;gap:22px;align-items:center}
+.bw-site header .bw-native-nav>.navbar-brand{margin-right:6px!important;flex-shrink:0}
+.bw-site header .bw-native-nav .navbar-brand img{height:49px;max-height:49px;width:auto}
+.bw-site header .bw-native-nav>#top_menu{min-width:0;gap:4px;align-items:center}
+.bw-site header .bw-native-nav>#top_menu .nav-link{padding:12px 10px;font-size:13px;font-weight:500;white-space:nowrap;color:#35554d}
+.bw-site header .bw-native-nav>#top_menu .nav-link:hover,.bw-site header .bw-native-nav>#top_menu .nav-link.active{color:#08756b}
+.bw-site header .bw-native-nav>ul:last-child{gap:9px!important;padding-left:16px!important;margin-left:auto;border-left:1px solid #dce5df;flex-shrink:0}
+.bw-site header .bw-native-nav .o_navlink_background{display:inline-flex;align-items:center;justify-content:center;width:39px;height:39px;min-width:39px;border:0;border-radius:50%;padding:0!important;background:#f0f5f1;color:#244d41!important}
+.bw-site header .bw-native-nav .o_navlink_background:hover{background:#deeee7;color:#08756b!important}
+.bw-site header .bw-native-nav .bw-account-control .fa-stack{width:auto;height:auto;line-height:1}
+.bw-site header .bw-native-nav .btn_cta{min-height:41px;border-radius:4px;font-size:13px;padding:10px 19px;white-space:nowrap;margin-left:7px}
+.bw-site header .bw-native-nav .oe_structure_solo .container{padding-inline:0}
+.bw-site .bw-header-phone{white-space:nowrap;font-size:13px;font-weight:500;color:#244d41}
+.bw-site .bw-header-email{font-size:12px;overflow-wrap:anywhere}
+.bw-site .bw-announcement a{display:inline-flex;align-items:center;white-space:nowrap;font-weight:600}
+@media(min-width:992px) and (max-width:1199px){.bw-site header .bw-native-nav{width:96%;gap:12px}.bw-site header .bw-native-nav>#top_menu{gap:0}.bw-site header .bw-native-nav>#top_menu .nav-link{font-size:12px;padding-inline:7px}.bw-site header .bw-native-nav>ul:last-child{gap:6px!important;padding-left:10px!important}.bw-site header .bw-native-nav .btn_cta{padding-inline:12px}}
+@media(max-width:680px){.bw-site .bw-announcement .bw-container>span{display:none}.bw-site .bw-announcement a{display:inline-flex;font-size:12px}.bw-site .bw-announcement{padding:9px 0}.bw-site header .bw-header-phone{font-size:14px;padding-block:14px}}

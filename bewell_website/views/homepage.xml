@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The base pages are noupdate to preserve website-editor changes.
+         Apply this requested homepage image change through an inherited view. -->
+    <template id="home_material_image" inherit_id="bewell_website.home" name="Be Well Homepage Material Image">
+        <xpath expr="//section[@id='bw_story']//div[@class='bw-story-art']/img" position="attributes">
+            <attribute name="src">/bewell_website/static/src/img/calacatta.webp</attribute>
+            <attribute name="alt">Ivory marble-look porcelain tile samples</attribute>
+        </xpath>
+    </template>
+</odoo>

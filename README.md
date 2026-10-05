@@ -83,3 +83,7 @@ Original leaf logo and Sharleen Pariag's portrait were retrieved from the live B
 ## Update 19.0.1.0.1
 
 Corrected the native placeholder phone/email, arranged the default header controls and applied the teal palette to native buttons, selected variants and badges. Rebuild from main in Cloudpepper, then upgrade **Be Well Distributors Website** in Odoo Apps. This update does not reinstall or reload demo products.
+
+## Update 19.0.1.0.2
+
+Replaced the founder portrait on the homepage with porcelain tile imagery. Rebuild from main in Cloudpepper and upgrade **Be Well Distributors Website** to apply this change to an existing installation.
